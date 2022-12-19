@@ -1,0 +1,59 @@
+*****************************************************************************
+                               Reflection
+                             Workshop - #7
+Full Name  : Gurel Sezgin
+Student ID#: 174331215
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1. Using structures for this workshop has made it easy to store different types of data that all represent
+   the information of the same structure only once before the main function. For example;
+   
+	struct PlayerInfo
+	{
+		int lives;
+		char nickName;
+		int treasureCounter;
+		char history[MAX_PATH_LEN];
+	};
+   
+   This structure has all the data types I need to store for the player information as members. If I need to declare a 
+   variable based on this struct, I simply can do: "struct PlayerInfo player" inside the main function. I can also add 
+   a second player for instance: "struct PlayerInfo player2", using the same attributes of the previous player.
+   
+   Also, if there is a need for using a single member of this struct, I can simply reach that member like "player.lives". 
+   This also comes in handy where there are two variables using the same struct since we do not need to declare two separate
+   variables like "int player1Lives" and "int player2Lives", but we can do "player1.lives" and "player2.lives". This is both
+   easier and more efficient memory-wise.
+   
+2. To keep the record of the previous endgame results, I would create another struct for the endgame, which would include parallel 
+   array members of: player symbol, game treasures found, bombs stepped, and moves remaining in case there are no lives left but 
+   some moves are there. The size of the arrays would be a macro that indicates the maximum number of games that will be recorded.
+   Then, I would declare an endgame variable inside the main function based on that struct.
+   
+   The second thing I would do is to keep the track of the history, pushing the last statistics to the endgame arrays at the end of
+   the game loop. That way, the game history would be recorded until the maximum number of storage is reached. 
+   
+3. The most time-consuming feature of this workshop was	to add the tracer of the player's last position with the symbol of the player.
+   I have tried to trace it based on the game path array, but they were on different lines and when I add the tracer into the for loop of
+   the game path array, the output did not correctly print. So I ended up adding another for loop for the tracer:
+   
+   for (i = 1; i <= nextMove; i++)
+		{
+			if (i == nextMove)
+			{
+				printf("%c", symbol);
+			}
+			else
+			{
+				printf(" ");
+			}
+		}
+	
+	But the player symbol did not spawn at the correct place somehow. It took me so much time to try and fail with the for loop, I tried
+	to start the i from 0, tried to change the if statement as if(i== nextMove +1), etc. Then I realized that the whole game board is indented,
+	and all I need to do was add printf("  "); at the beginning of the loop. 

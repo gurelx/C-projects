@@ -1,0 +1,67 @@
+*****************************************************************************
+                               Reflection
+                             Workshop - #5
+Full Name  : Gurel Sezgin
+Student ID#: 174331215
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1. The first selection method that maps the month integer value onto the characters is the combination of if/else if statements.
+   To illustrate the last two months:
+
+	if (month == 11)
+        {
+            printf("NOV");
+        }
+        else if (month == 12)
+        {
+            printf("DEC");
+        }
+
+   The second method is to use switch statements. The last two months can be mapped as:
+        
+	switch (month)
+	{
+	case 11:
+	     printf("NOV");
+	     break;
+	case 12:
+	     printf("DEC");
+	     break;
+	}
+
+2. The three types of iteration constructs are for loop, while loop, and do-while loop. A for loop is used when we know the exact 
+   number of iterations, a while loop is used to iterate until a specific condition is met, and a do-while loop is similar to while 
+   loop except the code inside of it is executed at least once. I have used do-while loops to validate the user input for two reasons. 
+   First, we had to get the user input at least once, and based on that input, we had to iterate the same prompt until the user 
+   enters the correct values, so we could not use a while loop. Second, we did not also know how many times the user will enter the 
+   value wrong. In other words, the number of iterations was not specific, therefore we also could not use a for loop. 
+
+3. I have tested my code for the syntactic errors first. To do that, I simply built my solution and checked for any issues in Visual
+   Studio. To debug any syntactic errors, I have directly followed where the error lines are shown in the Visual Studio and corrected
+   the syntax. I built my code again after that, and there were no syntactic errors left. For the semantic errors, I have conducted a 
+   black box test where I constructed three equivalence classes; one for the years, one for the months, and one for the morning and 
+   evening ratings. For each of the equivalence classes, I tested the maximum value, the minimum value, a value between maximum and 
+   minimum values, and some values beyond the ranges. When testing for the ratings, I realized that whichever value I enter for the 
+   morning rating, I cannot get out of the loop to proceed to the evening rating. The exact loop was this:
+
+	 do
+        {
+            printf("   Morning rating (%.1f-%.1f): ", MIN_RATING, MAX_RATING);
+            scanf("%f", &morningRating);
+
+            if (morningRating > MAX_RATING || morningRating < MIN_RATING)
+            {
+                printf("      ERROR: Rating must be between %.1f and %.1f inclusive!\n", MIN_RATING, MAX_RATING);
+            }
+
+        } while (morningRating > MAX_RATING || morningRating < MIN_RATING);
+
+  I thought the issue stems from my do-while logic. So, I used Visual Studio tracing and made a breakpoint at the end of the loop. I 
+  realized that the value of the morningRating was -9.2559604497122535e+61. Therefore, I understood that the scanf value was not 
+  collecting the value correctly, therefore causing the bug. Instead of %f, I corrected it %lf and debugging was succesful. After
+  that, I finished black box testing and there were no errors. 

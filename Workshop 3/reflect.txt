@@ -1,0 +1,42 @@
+*****************************************************************************
+                              Reflection
+                          Workshop - #3 (P2)
+Full Name  : Gurel Sezgin
+Student ID#: 174331215
+Email      : gurel-sezgin@myseneca.ca
+Section    : ZAA
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1. The most difficult expression to figure out in this workshop was to combine the range logic to another logic. For example:
+
+    (((0 < dailyServings) && (dailyServings < 5)) && (bagWeight1 == 250)) || (((5 < dailyServings) && (dailyServings < 10)) && (bagWeight1 == 500))...
+ 
+   This line of code maps the number of daily servings to the correct coffee bag weight. To express the range of daily servings correctly, I tried:
+ 
+    ((0 < dailyServings < 5) && (bagWeight1 == 250)) || ...
+ 
+   But it didn't gave the result, so I thought it was maybe a parentheses issue, I also tried: 
+   
+    (0 < dailyServings < 5 && bagWeight1 == 250) || ...
+  
+   It was also wrong, so it took me a while to realize that the problem was the expression itself. I did some tests, and corrected it.
+
+
+2. This piece of code: 
+
+     ((coffeeStr == 'm' || coffeeStr == 'M') && (coffeeType1 == 'l' || coffeeType1 == 'L')) 
+
+   could be written like;
+
+     !((coffeeStr != 'm' && coffeeStr != 'M') || (coffeeType1 != 'l' && coffeeType1 != 'L'))
+  
+   with DeMorgan's Law.
+
+
+3. In Part-1, we needed to store the average product prices in a seperate variable in order to use that value in the question 6. However, in Part-2,
+   The temperature in Fahrenheit was not used except to be displayed in the table. So, it is not stored in a variable for efficiency.

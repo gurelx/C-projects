@@ -1,0 +1,62 @@
+*****************************************************************************
+                               Reflection
+                             Workshop - #6
+Full Name  : Gurel Sezgin
+Student ID#: 174331215
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1. In this workshop I have used three parallel arrays which were:
+    
+    double cost[MAX_ITEMS] = { 0.0 };
+    int priority[MAX_ITEMS] = { 0 };
+    char financeOptions[MAX_ITEMS] = { 0 };
+
+   In part-2, to be able to calculate the amount filtered by priorty
+   I have used a statement like:
+
+    for (i = 0; i < itemNum; i++)
+    {
+ 	if (priority[i] == priorityFilter)
+        {
+        	amount += cost[i];
+        }
+
+        if (priority[i] == priorityFilter && financeOptions[i] == 'y')
+        {
+                financeNote = 1;
+        }
+     }
+  
+   In this statement the code conducts a search where the key is priority[i], 
+   If this key is equal to filter entered by user, it brings up the cost[i] 
+   value and accumulate into the amount variable.
+
+2. Iterating arrays starting from 0 is essential since the index value of
+   arrays start from 0. That means the computer considers the first element 
+   of the array as 0. If we start iterating from 1 the first element of the
+   array would be never touched. To illustrate:
+
+    for ( i = 0; i < itemNum; i++)
+    {
+	if (financeOptions[i] == 'y')
+        {
+        	financeNote = 1;
+        }
+    }
+
+   This is a for loop that searches a 'y' character in financeOptions array.
+   If we start the for loop from 1, the code never considers if the first 
+   element of financeOption, resulting in a semantic error.
+
+3. Arrays are basically trains. Anything that is inside an array lines up
+   like a bunch of locomotives. These locomotives are called elements in the
+   array. Let's say we need to find a locomotive in this train. First, we need 
+   to know its number. The first locomotive in our array train starts from 0, 
+   and goes up one by one. So the most basic way to search our locomotive is,
+   we can start from locomotive 0 and pass onto other one until we find ours.
+   This is called a linear search and computers can do it with a for loop. 

@@ -1,0 +1,42 @@
+*****************************************************************************
+                              Reflection
+                          Workshop - #2 (P2)
+Full Name  : Gurel Sezgin
+Student ID#: 174331215
+Email      : gurel-sezgin@myseneca.ca
+Section    : ZAA
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1. Computers sense 0s and 1s. The concept of a number not being 0 also not 1 is not in the comprehension field of a computer. 
+Therefore, even a simple number like 10.12, could be misrepresented as 10.11999… which is the case. 
+If the double type of variable (price2) is multiplied by 100 while being turned into an int type variable (cent2), 
+this means it moves two decimals and the rest is automatically truncated. 
+So, if price2 is 10.119999..., then the cent2 becomes only 1011 and all other 9’s are truncated. 
+The correct representation would be manually rounding the price2 when converting to cent2 which would print 1012.
+
+2. int fiftyDollarQty, twentyDollarQty;
+   int fiftyDollar, twentyDollar;
+
+   //First the 50$ should gone
+   fiftyDollarQty = (subTotalPat + subTotalSal + subTotalTom) / 5000;
+   fiftyDollar = (subTotalPat + subTotalSal + subTotalTom) % 5000;
+
+   twentyDollarQty = ((subTotalPat + subTotalSal + subTotalTom) - (fiftyDollarQty * 5000))/ 2000;
+   twentyDollar =  ((subTotalPat + subTotalSal + subTotalTom) - (fiftyDollarQty * 5000)) % 2000;
+
+   printf("Here is the number of 20$ in the sub-total: %.2lf, twentyDollarQty/(double)100);
+   printf("Here is the remainder after 20$ are gone: %.2lf, twentyDollar/(double)100);
+
+3. a. printf("Toonies  %9.4lf\n", toonie / 100.0);
+   b. printf("Toonies  %9.4lf\n", toonie / (double)100);
+   c. printf("Toonies  %9.4lf\n", (double)toonie / 100);
+
+   - In the option a, the promotion of the int variable (toonie) to a double type has taken place
+     implicitly due to coercion of dividing it to a double (100.0)
+   - In option b, the denominator is explicitly cast as a double.
+   - In option c, the int type variable is explicitly cast as a double.

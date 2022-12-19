@@ -1,0 +1,65 @@
+*****************************************************************************
+                        Assignment 1 - Reflection
+Full Name  : Gurel Sezgin
+Student ID#: 174331215
+Email      : gurel-sezgin@myseneca.ca
+Section    : ZAA
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1.	The first additional function I created was to sort the imported appointment data from “appointmentData.txt” by imported 
+	date and time data from “patientData.txt”. To do that, I have used the bubble sort technique in the function. That means 
+	I have created a temporary variable of type “Appoinment”, and I have utilized it to hold the record while switching the 
+	place of the array index of the other record based on the date. Starting from the higher hierarchy, years, to the lowest, 
+	minutes, the array of appointments is sorted. The prototype of this function is: 
+
+	“void sortByDate(struct Appointment *appoints, struct Patient* patients, int max)”
+
+	My second additional function is for prompting the patient number. Based on that number, the function either searches the 
+	records of appointments or patients based on the last argument value. If there is a match on the patient record, it returns 
+	the patient number, and if there is a match on the appointments record, it returns the index number of that record. The 
+	function was used in the add appointment and remove appointment functions. The prototype of this function is: 
+
+	“int checkPatientNumber(const struct Patient* patients, const struct Appointment* appoint, struct Appointment prompt, 
+	int maxPatients, int maxAppointments, int searchAppointment)”
+
+	My third additional function is to map the number of days according to the entered month and year. This is for prompting 
+	the correct day range from the user and returning it. To illustrate, if the user enters “2025” as the appointment year, and 
+	“2” for the month, the selection range for the days are limited to 1 and 28 as these are the only days for February 2025. 
+	This function does that by proceeding with a switch case for the months except for February and proceeding with an if 
+	statement based on the year if the month is February. The prototype of this function is: 
+
+	“int daysOfMonthsByYear(const struct Date date)”
+
+2.	The steps I have taken for the “addAppointment” function started with declaring the variables. I have declared and 
+	initialized an “Appointment” type as a holder for the user input. Then I declared some flag variables. The first process that 
+	the function goes through is to check if there are any free appointment spaces to add by checking if there are any records 
+	whose patient number is smaller than 1. If there is a space, it saves the index number and proceeds to prompt and check the 
+	patient number entered by the user. It does that with the help of “checkPatientNumber” function I created, and it decreases 
+	the function by almost 20 lines of code. If the patient number matches the patient database, it proceeds to take the year, month, 
+	and date from the user and check it. I utilized “daysOfMonthsByYear” function to provide the correct range of days based on the 
+	month. After that, the function prompts and checks if the hour entered by the user is between MAX_HOUR (14), and MIN_HOUR (10) 
+	macros and if the time is in 30-minute intervals. Finally, after the correct hours are entered, the function compares the date of 
+	the prompt and the dates of the appointment array, and if there is a match, giving an error that the timeslot is not available at 
+	that date. After every process is completed, and if the timeslot is available, the prompt is assigned to the appointment record 
+	at the index number of free space. 
+
+3.	In the case of this milestone, the instructions on the pdf about the functions were not so specific and there were additional 
+	functions to add, so I started my week by planning how can I make all the modules work individually and together. I wrote down 
+	semi-pseudocode on each function and used that in forthcoming steps. I also set some deadlines for some steps during the week, 
+	otherwise, I could be stuck in a function and cannot submit by the due date. I started writing the code on Tuesday and started 
+	with importing my previous milestone, creating new structs, and working on importing the .txt files as the data of the code. I 
+	was unsuccessful, so I returned the course content, watched the provided videos, and managed to do it on the same day. By the end 
+	of the week, I still wasn’t able to sort the records based on the dates of the appointments. Therefore, I attended an SLG session 
+	and managed to figure it out finally. On Friday and Saturday, I have roughly reached to a point to produce the correct output. The 
+	final thing to do was to test my code in different situations. There are three major issues you can come across while testing the 
+	code. First, there are values that can break the code that the given outputs do not necessarily provide. So, I had to go through 
+	some black and white box tests to see that my code doesn’t break. The second issue is VS Studio and the gcc compiler are different 
+	and there could be many errors occurring during matrix submission. So, I pretended as I am submitting and fixed those errors. The 
+	final issue is the spacing of my code could be very different from the output. So, I put a considerable amount of testing and 
+	fixing those, and when the matrix gods are satisfied, I have written my reflection. Overall, my process was like SDLC principles. 
+	I have designed, planned, coded, tested, and finally deployed my code. 

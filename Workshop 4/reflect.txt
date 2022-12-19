@@ -1,0 +1,126 @@
+*****************************************************************************
+                               Reflection
+                             Workshop - #4
+Full Name  : Gurel Sezgin
+Student ID#: 174331215
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1. Selection is an essential tool in programming since it provides the necessary steps to map some input to the correct output. It does that by
+   offering a logic to follow some specific paths, whether it would be an optional path, a simple if statement, or alternative paths combined 
+   with multiple if/else if statements to reach the desired outcome. It also offers the option to iterate some processes until they meet some
+   specific criteria with while, do-while, or for, to create a controlled loop. This feature could be used for maybe to verify a specific 
+   condition and repeat it until it is met, or to make simple processes like counting to a specific number. My first example of selection is:
+
+            printf("How many APPLES do you need? : ");
+            scanf(" %d", &apples);
+
+            if (apples < 0)
+            { 
+                printf("ERROR: Value must be 0 or more.\n");
+            }
+            else
+            {
+                printf("\n");
+            }
+
+   In this example, we take some input from the user (the number of apples) and do some selection process based on that. Based on the number of 
+   apples, there are two alternative options that print two different outputs. If the number of the apples is less than 0, the code prints an 
+   error message that the value must be greater than 0, else, which means the number of the apples is greater than 0, it just prints a new line 
+   and continues. 
+
+   My second example of selection is:
+
+            if (pickCount < 1)
+            {
+                printf("ERROR: You must pick at least 1!\n");
+            }
+            else if (pickCount > apples)
+            {
+                printf("You picked too many... only %d more APPLE(S) are needed.\n", apples);
+            }
+            else if (pickCount < apples)
+            {
+                printf("Looks like we still need some APPLES...\n");
+                apples -= pickCount;
+                pickCount = 0;
+            }
+
+   This time, there is a more complex alternative option logic, which maps the picking counter to a specific number of apples, and outputs some 
+   different operations based on the option. First, if the pick count is less than 1, it prints an error message to the user that it should be at 
+   least 1. Second, if the pick counter is greater than the number of apples, it prints that the user picked more apples than the necessary
+   number. Third, if the number of the apples are greater than the pick counter, it prints that the user needs to pick more, and it subtracts the 
+   number of apples by the pick count, and resets the pick count to 0, so that the user could keep picking the remaining number of apples. In this 
+   situation, there is one more path that could be achieved but not specified in this if statement which is the pick count is equal to the number 
+   of apples. That condition is used for another part of the code.
+
+   My third example of selection is:
+
+           do
+           {
+             printf("How many CABBAGES do you need? : ");
+             scanf(" %d", &cabbages);
+
+             if (cabbages < 0)
+             {
+                printf("ERROR: Value must be 0 or more.\n");
+             }
+             else
+             {
+                printf("\n");
+             }
+           } while (cabbages < 0);
+    
+   This example is the full code block of the first example. I gave this block as an instance since it demonstrates an iteration of the if 
+   statement explained in example 1. In this case, the if statement process of cabbages will be completed at least once. Then, the
+   condition of the number of cabbages being less than 0 will be checked. After that, the if process will be processed again and again until
+   the number of cabbages is entered greater than 0.
+  
+2. A nested construct is a selection process inside of a greater selection process. That means that, whatever the operation inside is, it 
+   will be completed based on the conditions of the outside process that nests it. The greater selection can decide that the nested 
+   operation will take place if some conditions are met, or it can decide that the nested operation to be continually executed until some
+   conditions are met. To give a specific example:
+
+        if (apples > 0)
+        {
+            do
+            {
+                printf("Pick some APPLES... how many did you pick? : ");
+                scanf(" %d", &pickCount);
+
+                if (pickCount < 1)
+                {
+                    printf("ERROR: You must pick at least 1!\n");
+                }
+                else if (pickCount > apples)
+                {
+                    printf("You picked too many... only %d more APPLE(S) are needed.\n", apples);
+                }
+                else if (pickCount < apples)
+                {
+                    printf("Looks like we still need some APPLES...\n");
+                    apples -= pickCount;
+                    pickCount = 0;
+                }
+            } while (pickCount != apples);
+            
+            printf("Great, that's the apples done!\n\n");
+        }
+
+   In this example, there are two degrees of nested selections that are inside a greater selection. First, there are some alternative options (if/else if) 
+   statements that give different outputs. Those options will be scanned through at least once, and continue to be executed as long as the pick count is
+   not equal to the number of the apples. When apples are equal to the pick count, the loop will break and a message that the apple picking is over will
+   be printed. So, we can say that the if statements are nested in a do-while loop in this case. Second, this whole process that has been explained will
+   take place only if number of the apples is greater than 0. Therefore, we can also say that the do-while statement is nested inside of an if statement.
+
+3. All iteration constructs meet some specific needs, and I use all of them based on the logic I am building. In this workshop, however my favorite 
+   construct is the do-while statement. This is because, in all parts of the logic, that is taking the number of the groceries, picking in the right 
+   number, and deciding to do another shopping, the user input is needed first. Based on that input we should decide to move on to the next step or loop 
+   to the beginning. The do-while construct is perfect for this need since it executes whatever is inside of it (in this case asking for user input) at 
+   least once, and repeats as long as a condition is met. If I had used a while construct instead, it also would loop until a condition is met but I could 
+   not get the user input first because it would not be executed at least once. If I used a for construct, on the other hand, I should be able to know how 
+   many times the loop will be repeated, but the repetition is dependent on the user input, and the number of loops is random. 
