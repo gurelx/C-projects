@@ -1,5 +1,5 @@
 # C-projects
-Basic projects made in C to  understand the fundemental programming concepts
+Basic projects I made in C to  understand the fundemental programming concepts
 
 ## Academic Disclaimer
 
